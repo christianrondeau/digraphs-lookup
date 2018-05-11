@@ -16,10 +16,10 @@ namespace DigraphsLookup
 			var bytes = new byte[stream.Length];
 			await stream.ReadAsync(bytes, 0, (int)stream.Length);
 
-			var current = (short)(bytes[0] * 256);
+			var current = (short)bytes[0];
 			for (var i = 1; i < bytes.Length; i++)
 			{
-				current = (short) (bytes[i] * 256 + (current >> 8));
+				current = (short) (bytes[i] + (current << 8));
 				if (accumulator.TryGetValue(current, out var entry))
 					entry.Count++;
 			}
@@ -33,7 +33,7 @@ namespace DigraphsLookup
 			{
 				foreach (var digraph in digraphs)
 				{
-					var key = (short)(256 * digraph[1] + digraph[0]);
+					var key = (short)(digraph[1] + 256 * digraph[0]);
 					var entry = new LookupAccumulatorEntry{Digraph = digraph};
 					Add(key, entry);
 				}
