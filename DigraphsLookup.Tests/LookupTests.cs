@@ -16,7 +16,6 @@ namespace DigraphsLookup.Tests
 		{
 			yield return new SubstringPairsDigraphsLookup();
 			yield return new BitShiftingBinarySearchDigraphsLookup();
-			yield return new BitShiftingDigraphsLookup();
 		}
 
 		[Test]
@@ -126,7 +125,7 @@ namespace DigraphsLookup.Tests
 		{
 			const int warmups = 1000;
 			const int runs = 1000;
-			var digraphs = new[] {"ab", "ad", "af", "ag", "ax"};
+			var digraphs = new[] {"ab", "ad", "af", "ag", "ar"};
 
 			var bookPath = GetBookPath("Frankenstein");
 			using (var stream = new MemoryStream(await File.ReadAllBytesAsync(bookPath)))
@@ -144,7 +143,7 @@ namespace DigraphsLookup.Tests
 					new LookupResult("ad", 1282),
 					new LookupResult("af", 246),
 					new LookupResult("ag", 659),
-					new LookupResult("ax", 12)
+					new LookupResult("ar", 2593)
 				}, result);
 
 				// Warmup
