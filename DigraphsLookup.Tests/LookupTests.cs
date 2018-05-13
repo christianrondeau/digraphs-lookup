@@ -169,14 +169,14 @@ namespace DigraphsLookup.Tests
 
 		private static void WriteTimings(string name, long[] times)
 		{
-			Console.WriteLine($"Performance ({name}):");
-			Console.WriteLine($"  {times.Length} runs");
-			Console.WriteLine($"  {times.Sum()}ms total run time");
+			Console.WriteLine($"> Performance ({name}):");
+			Console.WriteLine($">   {times.Length} runs");
+			Console.WriteLine($">   {times.Sum()}ms total run time");
 			//WriteLine($"  Values: {string.Join(',', times)}");
 			Array.Sort(times);
-			Console.WriteLine($"  Average time: {times.Average() / times.Length}");
-			Console.WriteLine("  | Min | 25% | 50% | 75% | 95% | Max |");
-			Console.WriteLine($"  | {times.Min():000} | {times[times.Length / 4]:000} | {times[times.Length / 2]:000} | {times[times.Length / 4 * 3]:000} | {times[times.Length / 20 * 19]:000} | {times.Max():000} |");
+			Console.WriteLine($">   Average time: {times.Average() / times.Length}");
+			Console.WriteLine(">   | Min | 25% | 50% | 75% | 95% | Max |");
+			Console.WriteLine($">   | {times.Min():000} | {times[times.Length / 4]:000} | {times[times.Length / 2]:000} | {times[times.Length / 4 * 3]:000} | {times[times.Length / 20 * 19]:000} | {times.Max():000} |");
 		}
 
 		private static Stream GivenStream(string value)
