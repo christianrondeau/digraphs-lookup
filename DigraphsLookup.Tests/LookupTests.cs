@@ -15,7 +15,8 @@ namespace DigraphsLookup.Tests
 		public static IEnumerable<IDigraphsLookup> GetImplementations()
 		{
 			yield return new SubstringPairsDigraphsLookup();
-			yield return new ShortDigraphsLookup();
+			yield return new ShortShiftingDigraphsLookup();
+			yield return new BitShiftingDigraphsLookup();
 		}
 
 		[Test]
@@ -55,6 +56,22 @@ namespace DigraphsLookup.Tests
 		[Test]
 		[TestCaseSource(nameof(GetImplementations))]
 		public async Task FindOneDigraph(IDigraphsLookup implementation)
+		{
+			LookupResult[] result;
+			using (var stream = GivenStream("ab"))
+			{
+				result = await implementation.LookupAsync(stream, "ab");
+			}
+
+			CollectionAssert.AreEquivalent(new[]
+			{
+				new LookupResult ("ab", 1)
+			}, result);
+		}
+
+		[Test]
+		[TestCaseSource(nameof(GetImplementations))]
+		public async Task FindOneOfTwoDigraphs(IDigraphsLookup implementation)
 		{
 			LookupResult[] result;
 			using (var stream = GivenStream("ab"))
