@@ -15,7 +15,7 @@ namespace DigraphsLookup.Tests
 		public static IEnumerable<IDigraphsLookup> GetImplementations()
 		{
 			yield return new SubstringPairsDigraphsLookup();
-			yield return new ShortShiftingDigraphsLookup();
+			yield return new BitShiftingBinarySearchDigraphsLookup();
 			yield return new BitShiftingDigraphsLookup();
 		}
 
