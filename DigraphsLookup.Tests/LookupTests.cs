@@ -170,7 +170,7 @@ namespace DigraphsLookup.Tests
 						watch.Stop();
 					}
 
-					times[i] = watch.ElapsedMilliseconds;
+					times[i] = watch.ElapsedTicks / 10;
 				}
 
 				WriteTimings(implementation.GetType().Name, times);
@@ -189,12 +189,13 @@ namespace DigraphsLookup.Tests
 		{
 			Console.WriteLine($"> Performance ({name}):");
 			Console.WriteLine($">   {times.Length} runs");
-			Console.WriteLine($">   {times.Sum()}ms total run time");
+			Console.WriteLine($">   {times.Sum() / TimeSpan.TicksPerSecond / 10}s total run time");
 			//WriteLine($"  Values: {string.Join(',', times)}");
 			Array.Sort(times);
-			Console.WriteLine($">   Average time: {times.Average() / times.Length}");
-			Console.WriteLine(">   | Min | 25% | 50% | 75% | 95% | Max |");
-			Console.WriteLine($">   | {times.Min():000} | {times[times.Length / 4]:000} | {times[times.Length / 2]:000} | {times[times.Length / 4 * 3]:000} | {times[times.Length / 20 * 19]:000} | {times.Max():000} |");
+			Console.WriteLine($">   Average time: {times.Average():0000} µs");
+			Console.WriteLine(">   Percentiles (in microseconds):");
+			Console.WriteLine(">   |   Min |   25% |   50% |   75% |   95% |   Max |");
+			Console.WriteLine($">   | {times.Min(),5:####0} | {times[times.Length / 4],5:####0} | {times[times.Length / 2],5:####0} | {times[times.Length / 4 * 3],5:####0} | {times[times.Length / 20 * 19],5:####0} | {times.Max(),5:####0} |");
 		}
 
 		private static Stream GivenStream(string value)
