@@ -16,6 +16,8 @@ namespace DigraphsLookup.Tests
 		{
 			yield return new SubstringPairsDigraphsLookup();
 			yield return new BitShiftingBinarySearchDigraphsLookup();
+			yield return new MemoryArraySearchDigraphsLookup();
+			yield return new MemoryArraySearchDigraphsLookupV2();
 		}
 
 		[Test]
