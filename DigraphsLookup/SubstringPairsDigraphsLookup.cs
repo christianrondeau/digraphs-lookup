@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 namespace DigraphsLookup
 {
+	// Author: @christianrondeau
 	public class SubstringPairsDigraphsLookup : IDigraphsLookup
 	{
 		public async Task<LookupResult[]> LookupAsync(Stream stream, params string[] digraphs)

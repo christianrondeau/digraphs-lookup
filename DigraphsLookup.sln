@@ -5,7 +5,12 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigraphsLookup", "DigraphsLookup\DigraphsLookup.csproj", "{7DA0A5D0-4407-4CFF-A98C-6AB64A041071}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigraphsLookup.Tests", "DigraphsLookup.Tests\DigraphsLookup.Tests.csproj", "{5E80ADE0-3C57-4010-AE72-58446D064D00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigraphsLookup.Tests", "DigraphsLookup.Tests\DigraphsLookup.Tests.csproj", "{5E80ADE0-3C57-4010-AE72-58446D064D00}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B432980D-2C5C-44C2-94AC-82C043FE7432}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

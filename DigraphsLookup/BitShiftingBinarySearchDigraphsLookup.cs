@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace DigraphsLookup
 {
+	// Author: @christianrondeau
 	public class BitShiftingBinarySearchDigraphsLookup : IDigraphsLookup
 	{
 		public async Task<LookupResult[]> LookupAsync(Stream stream, params string[] digraphs)

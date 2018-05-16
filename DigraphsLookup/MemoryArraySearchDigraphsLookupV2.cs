@@ -1,9 +1,11 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DigraphsLookup
 {
+	// Author: @Socolin
 	public class MemoryArraySearchDigraphsLookupV2 : IDigraphsLookup
 	{
 		private readonly int[] _result = new int[256 * 256];
