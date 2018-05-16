@@ -16,6 +16,8 @@ namespace DigraphsLookup
 
 		public async Task<LookupResult[]> LookupAsync(Stream stream, params string[] digraphs)
 		{
+			if (stream.Length < 2) return digraphs.Select(d => new LookupResult(d, 0)).ToArray();
+
 			for (var i = 0; i < _result.Length; i++)
 			{
 				_result[i] = 0;
