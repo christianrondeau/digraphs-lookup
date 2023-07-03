@@ -42,7 +42,9 @@ namespace DigraphsLookup
 			}
 
 			var bytes = new byte[stream.Length];
-			await stream.ReadAsync(bytes, 0, (int)stream.Length);
+			var read = 0;
+			while (read < stream.Length)
+				read = await stream.ReadAsync(bytes, read, (int)stream.Length);
 
 			var first = bytes[0];
 			for (var i = 1; i < bytes.Length; i++)
