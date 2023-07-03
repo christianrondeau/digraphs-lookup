@@ -18,6 +18,12 @@ namespace DigraphsLookup.Tests
 			yield return new BitShiftingBinarySearchDigraphsLookup();
 			yield return new MemoryArraySearchDigraphsLookup();
 			yield return new MemoryArraySearchDigraphsLookupV2();
+			yield return new MemoryArraySearchDigraphsLookupAvx();
+#if NET8_0_OR_GREATER
+			yield return new MemoryArraySearchDigraphsLookupAvx512();
+#endif
+			yield return new MemoryArraySearchDigraphsLookupAvxParallel();
+			yield return new MemoryArraySearchDigraphsLookupGpu();
 		}
 
 		[Test]
